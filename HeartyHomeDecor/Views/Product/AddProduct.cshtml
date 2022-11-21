@@ -1,0 +1,60 @@
+﻿@model HeartyHomeDecor.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = Model != null ? "Edit" : "Add";
+}
+
+<hr />
+
+<div class="container">
+
+    @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new { id = "frmCreateProduct", @style = "display: contents !important;" }))
+    {
+        int productId = Model != null ? Model.Id : 0;
+        @Html.Hidden("Id", productId)
+    <div class="row">
+        <div class="form-group col-md-12">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger validationMsg" })
+        </div>
+        <div class="form-group  col-md-8">
+            <label>Product Name</label>
+            @Html.TextBoxFor(m => m.ProductName, new { @placeholder = "Enter Product Name", @class = "form-control" })
+        </div>
+        <div class="form-group  col-md-8">
+            <label>Category</label>
+            @Html.DropDownListFor(m => m.CategoryId, new SelectList(ViewData["Categories"] as List<SelectListItem>, "Value", "Text"), new { @class = "form-control" })
+        </div>
+        <div class="form-group  col-md-8">
+            <label>Product Detail</label>
+            @Html.TextBoxFor(m => m.ProductDetail, new { @placeholder = "Enter Product Detail", @class = "form-control" })
+        </div>
+        <div class="form-group  col-md-8">
+            <label>SKU</label>
+            @Html.TextBoxFor(m => m.SKU, new { @placeholder = "Enter SKU", @class = "form-control" })
+        </div>
+        <div class="form-group  col-md-8">
+            <label>Price</label>
+            <span>$</span>@Html.TextBoxFor(m => m.Price, new { @placeholder = "Enter Price", @class = "form-control" })
+        </div>
+        <div class="form-group  col-md-8">
+            <label>Rating</label>
+            @Html.DropDownListFor(m => m.Rating,  new[]{
+                            new SelectListItem(){ Text = "1", Value = "1"},
+                            new SelectListItem(){ Text = "1.5", Value = "1.5"},
+                            new SelectListItem(){ Text = "2", Value = "2"},
+                            new SelectListItem(){ Text = "2.5", Value = "2.5"},
+                            new SelectListItem(){ Text = "3", Value = "3"},
+                            new SelectListItem(){ Text = "3.5", Value = "3.5"},
+                            new SelectListItem(){ Text = "4", Value = "4"},
+                            new SelectListItem(){ Text = "4.5", Value = "4.5"},
+                            new SelectListItem(){ Text = "5", Value = "5"}
+                            }, "Select Rating", new { @placeholder = "Enter Rating", @class = "form-control" })
+        </div>
+        <div class="form-group col-md-12 mt-3">
+            <input type="submit" id="btnsubmit" value="Save" title="Save" class="btn btn-success" />
+            <input type="button" value="Cancel" title="Cancel" class="btn btn-secondary ml-1" onclick="window.location.href='@Url.Action("ProductDetail", "Product")';" />
+        </div>
+    </div>
+    }
+
+</div>

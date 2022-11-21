@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .productbutton {
+        background-color: #002f2f;
+        font-size: 20px;
+        width: 200px;
+        color: white;
+    }
+
+    .productbutton :hover {
+        color: white !important;
+    }
+</style>
+
+<div class="shop-category container-1200">
+    <input type="button" value="View Products" title="ProductDetail" class="ml-1 productbutton" onclick="window.location.href='@Url.Action("ProductDetail", "Product")';" />
+    <div class="top-list">
+        <a>
+            <figure> <img src="~/Images/icon1.jpg" alt="Wall Shelves" title="Wall Shelves" width="100%" height="100%"></figure>
+            Wall Shelves
+        </a>
+        <a>
+            <figure><img src="~/Images/icon3.jpg" alt="Wall Mirrors" title="Wall Mirrors" width="100%" height="100%"></figure>
+            Wall Mirrors
+        </a>
+        <a>
+            <figure><img src="~/Images/icon4.jpg" alt="Wall Clocks" title="Wall Clocks" width="100%" height="100%"></figure>
+            Wall Clocks
+        </a>
+        <a>
+            <figure> <img src="~/Images/icon5.jpg" alt="Tableware" title="Tableware" width="100%" height="100%"></figure>
+            Tableware
+        </a>
+        <a>
+            <figure><img src="~/Images/icon6.jpg" alt="Glassware" title="Glassware" width="100%" height="100%"></figure>
+            Glassware
+        </a>
+        <a>
+            <figure><img class="lazy loaded" src="~/Images/icon7.jpg" data-src="~/Images/icon7.jpg" alt="Figurines" title="Figurines" width="100%" height="100%" data-was-processed="true"></figure>
+            Figurines
+        </a>
+        <a>
+            <figure><img class="lazy loaded" src="~/Images/icon8.jpg" data-src="~/Images/icon8.jpg" alt="Key Holders" title="Key Holders" width="100%" height="100%" data-was-processed="true"></figure>
+            Key Holders
+        </a>
+        <a>
+            <figure> <img class="lazy loaded" src="~/Images/icon10.jpg" data-src="~/Images/icon10.jpg" alt="Photo Frames" title="Photo Frames" width="100%" height="100%" data-was-processed="true"></figure>
+            Photo Frames
+        </a>
+    </div>
+</div>
